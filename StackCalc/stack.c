@@ -1,7 +1,13 @@
-/* Stack Calculator for Long Arithmnetics
- by Sokolova Polina */
+//
+//  stack.c
+//  Stack calculator for long arithmetics
+//
+//  Created by Sokolova Polina on 25.12.14.
+//  Copyright (c) 2014 PS. All rights reserved.
+//
 
 #include "stack.h"
+
 void longNum_operations (int sign_1, int size_1, intlist *list_1, int sign_2, int size_2, intlist *list_2, int *sign_res, int *size_res, intlist **list_res, int command, int *f) {
     switch(command) {
         case 0: {
@@ -303,9 +309,7 @@ void longNum_sumformult(int size_1, intlist *list_1, int *size_2, intlist **list
             else {
                 if (size_1 > *size_2) {
                     intlist_copy(list_1, &max_list);
-                    
                     min_list = *list_2;
-                    
                     *size_2 = size_1;
                 }
                 else {
@@ -465,9 +469,9 @@ void longNum_division(int sign_1, int size_1, intlist *list_1, int size_2, intli
                 *size_res = size_sum;
                 *list_res = list_sum;
                 intlist_free(&p_one);
+                intlist_free(&list_clone_1);
+                intlist_free(&list_clone_2);
             }
-            intlist_free(&list_clone_1);
-            intlist_free(&list_clone_2);
         }
     }
 }
@@ -793,17 +797,4 @@ void stack_quit(stack **head) {
         free(p);
     }
     exit (0);
-}
-int main() {
-    stack *top = NULL;
-    int flag = 0;
-    stack_read(&top, &flag);
-    stack_print(top, flag, 0);
-    stack_quit(&top);
-    if (flag) {
-        return 1;
-    }
-    else {
-        return 0;
-    }
 }

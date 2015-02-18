@@ -1,9 +1,16 @@
+//
+//  stack.h
+//  Stack calculator for long arithmetics
+//
+//  Created by Sokolova Polina on 25.12.14.
+//  Copyright (c) 2014 PS. All rights reserved.
+//
+
 #ifndef __Calc__stack__
 #define __Calc__stack__
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "stack.h"
 
 typedef struct intlist {
     int v;

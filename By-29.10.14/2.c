@@ -31,9 +31,9 @@ int main(){
     data.m = data.m & (0x7FFFFF);
     data.m <<= 9;
     while (data.m) {
-		mant = mant + b * (data.m >> 31);
-		b /= 2;
-		data.m <<= 1;
+	mant = mant + b * (data.m >> 31);
+	b /= 2;
+	data.m <<= 1;
     }
     printf ("Мантисса = %f\n", mant);
     if ((data.e == 0) && (mant == 0)) {
